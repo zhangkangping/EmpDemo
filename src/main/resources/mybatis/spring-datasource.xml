@@ -36,7 +36,7 @@
     2-找到UserDao接口对应的mapper.xml文件，生成代理类对象，然后注册到Spring容器中，名称就是“userDao”
     -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.company.oasis.dao"/>
+        <property name="basePackage" value="com.oasis.dao"/>
     </bean>
 
     <!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置-->

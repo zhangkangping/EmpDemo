@@ -20,7 +20,7 @@ public class deptAction {
 
     @RequestMapping("deptSave.do")
     @ResponseBody
-    public  ReponseResult<Dept> save(Dept dept){
+    public ReponseResult<Dept> save(Dept dept){
         String msg = deptService.save(dept);
         int code = Result.SUCCESS.equals(msg)?200:404;
         return new ReponseResult<Dept>(code,msg);
@@ -34,7 +34,7 @@ public class deptAction {
         return new ReponseResult<Dept>(code,msg);
     }
 
-    @RequestMapping("deptUpdate")
+    @RequestMapping("deptUpdate.do")
     @ResponseBody
     public ReponseResult<Dept> update(Dept dept){
         String msg = deptService.update(dept);
@@ -43,34 +43,34 @@ public class deptAction {
     }
 
 
-    @RequestMapping("deptFindById")
+    @RequestMapping("deptFindById.do")
     @ResponseBody
-    public  ReponseResult<Dept> findById(@PathVariable Integer dno){
+    public  ReponseResult<Dept> findById(Integer dno){
         Dept depts = deptService.findById(dno);
         if (depts!=null){
-            return new ReponseResult<Dept>(200, Result.SUCCESS);
+            return new ReponseResult<Dept>(200, Result.SUCCESS,depts);
         }else {
             return new ReponseResult<Dept>(404,Result.ERROR);
         }
     }
 
-    @RequestMapping("deptFindByName")
+    @RequestMapping("deptFindByName.do")
     @ResponseBody
-    public  ReponseResult<List<Dept>> findByName(@PathVariable("dname") String dname){
+    public  ReponseResult<List<Dept>> findByName(String dname){
         List<Dept> depts = deptService.findByName(dname);
         if (depts!=null&&depts.size()>0){
-            return new ReponseResult<List<Dept>>(200,Result.SUCCESS);
+            return new ReponseResult<List<Dept>>(200,Result.SUCCESS,depts);
         }else {
             return new ReponseResult<List<Dept>>(404,Result.ERROR);
         }
     }
 
-    @RequestMapping("deptfindByType")
+    @RequestMapping("deptfindByType.do")
     @ResponseBody
-    public ReponseResult<List<Dept>> findByType(@PathVariable("dtype") String dtype){
+    public ReponseResult<List<Dept>> findByType( String dtype){
         List<Dept> depts = deptService.findByType(dtype);
         if (depts!=null&&depts.size()>0){
-            return new ReponseResult<List<Dept>>(200,Result.SUCCESS);
+            return new ReponseResult<List<Dept>>(200,Result.SUCCESS,depts);
         }else {
             return new ReponseResult<List<Dept>>(404,Result.ERROR);
         }

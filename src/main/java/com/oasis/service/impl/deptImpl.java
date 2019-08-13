@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("deptService")
 public class deptImpl implements DeptService {
     @Autowired
     DeptDao deptDao;

@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml", "classpath:spring-datasource.xml"})
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class DeptDaoTest {
     @Autowired
     DeptDao deptDao;
@@ -30,6 +30,7 @@ public class DeptDaoTest {
 
     @Test
     public void selectByPrimaryKey() {
+
         System.err.println(deptDao.selectByPrimaryKey(1));
     }
 }
